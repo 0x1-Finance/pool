@@ -17,6 +17,13 @@ export class Pair {
 		let reserves = await this.contract.methods.getReserves().call();
 		return reserves[0] / reserves[1]
 	}
+	
+	async getPriceOfUSDTBIN() {
+		this.address = config.pair_USDT_BIN;
+		this.contract = new this.web3.eth.Contract(UNISWAP_PAIR, this.address)
+		let reserves = await this.contract.methods.getReserves().call();
+		return reserves[0] / reserves[1]
+	}
 
 	async getPriceOfWMUEBIN() {
 		this.address = config.pair_WMUE_BIN;
@@ -34,6 +41,20 @@ export class Pair {
 	
 	async getPriceOfWMUEUSDT() {
 		this.address = config.pair_WMUE_USDT;
+		this.contract = new this.web3.eth.Contract(UNISWAP_PAIR, this.address)
+		let reserves = await this.contract.methods.getReserves().call();
+		return reserves[0] / reserves[1]
+	}
+	
+	async getPriceOfBTCBUSDT() {
+		this.address = config.pair_BTCB_USDT;
+		this.contract = new this.web3.eth.Contract(UNISWAP_PAIR, this.address)
+		let reserves = await this.contract.methods.getReserves().call();
+		return reserves[0] / reserves[1]
+	}
+	
+	async getPriceOfETHUSDT() {
+		this.address = config.pair_ETH_USDT;
 		this.contract = new this.web3.eth.Contract(UNISWAP_PAIR, this.address)
 		let reserves = await this.contract.methods.getReserves().call();
 		return reserves[0] / reserves[1]

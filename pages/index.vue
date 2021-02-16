@@ -6,18 +6,19 @@
           {{$t("home.protocol-name")}}
         </h3>
         <p>
-          Stake 0x1 LP tokens (generated from <a href="https://swap.0x1.finance" target="_blank">swap.0x1.finance</a>) to earn BIN tokens.<br><br>
-		  <font style="color: red;">BIN tokensale is going on: <a href="https://0x1.finance/mainsale/" target="_blank">0x1.finance/mainsale</a></font>
+          Stake 0x1 LP tokens (generated from <a href="https://0x1.exchange" target="_blank">0x1.exchange</a>) and farm BIN tokens!
         </p>
       </div>
     </div>
     <br>
 	
 	<div class="price alert alert-success">
-      <marquee>1 BIN = {{ priceBNBBIN ? (priceBNBBIN * priceBNBUSDT).toFixed(2) : '--' }} USDT |
+      <marquee>1 BIN = {{ priceBNBBIN ? (priceBNBBIN).toFixed(4) : '--' }} BNB ~ {{ priceUSDTBIN ? (priceUSDTBIN).toFixed(2) : '--' }} USDT |
       1 BNB = {{ priceBNBUSDT ? priceBNBUSDT.toFixed(2) : '--' }} USDT |
-	  1 WMUE = {{ priceWMUEUSDT ? (1/priceWMUEUSDT).toFixed(6) : '--' }} USDT</marquee>
-	  <small><b>NOTE:</b> PRICE FEED IS IMPORTED FROM 0x1 AMM DEX</small>
+	  1 BTC = {{ priceBTCBUSDT ? priceBTCBUSDT.toFixed(2) : '--' }} USDT |
+	  1 ETH = {{ priceETHUSDT ? (1/priceETHUSDT).toFixed(2) : '--' }} USDT |
+	  1 WMUE = {{ priceWMUEUSDT ? (1/priceWMUEUSDT).toFixed(4) : '--' }} USDT</marquee>
+	  <small><b>NOTE:</b> PRICE FEED IS IMPORTED FROM 0x1 EXCHANGE</small>
     </div>
 	<br>
 	
@@ -52,13 +53,19 @@
       return {
         cows: config.cows,
         priceBNBBIN: null,
+		priceUSDTBIN: null,
         priceWMUEBIN: null,
 		priceBNBUSDT: null,
 		priceWMUEUSDT: null,
+		priceBTCBUSDT: null,
+		priceETHUSDT: null,
         apy: {
           1: '--',
 		  2: '--',
-		  3: '--'
+		  3: '--',
+		  4: '--',
+		  5: '--',
+		  6: '--'
         }
       }
     },
@@ -67,13 +74,17 @@
     },
     async mounted() {
       let pair = new Pair()
-      let promises = [ pair.getPriceOfBNBBIN(), pair.getPriceOfBNBUSDT(), pair.getPriceOfWMUEBIN(), pair.getPriceOfWMUEUSDT()];
+      let promises = [ pair.getPriceOfBNBBIN(), pair.getPriceOfUSDTBIN(), pair.getPriceOfBNBUSDT(), pair.getPriceOfWMUEBIN(), pair.getPriceOfWMUEUSDT(), 
+	  pair.getPriceOfBTCBUSDT(), pair.getPriceOfETHUSDT()];
       let prices = await Promise.all(promises);
 
       this.priceBNBBIN =  BigNumber(prices[0]);
-      this.priceBNBUSDT = BigNumber(prices[1]);
-      this.priceWMUEBIN = BigNumber(prices[2]);
-	  this.priceWMUEUSDT = BigNumber(prices[3]);
+      this.priceUSDTBIN = BigNumber(prices[1]);
+	  this.priceBNBUSDT = BigNumber(prices[2]);
+      this.priceWMUEBIN = BigNumber(prices[3]);
+	  this.priceWMUEUSDT = BigNumber(prices[4]);
+	  this.priceBTCBUSDT = BigNumber(prices[5]);
+	  this.priceETHUSDT = BigNumber(prices[6]);
       
 
       this.cows.map(async(cow) => {
@@ -85,11 +96,17 @@
           let rewards = rewardRate.times(365 * 24 * 60 * 60).div(balance)
 
           if(cow.id == 1) {
-            this.apy[1] = rewards.times(this.priceBNBBIN).times(200).toFixed(2)
+            this.apy[1] = rewards.times(this.priceBNBBIN).div(this.priceBNBBIN.plus(1)).times(100).toFixed(2)
           } else if(cow.id == 2) {
-            this.apy[2] = rewards.times((this.priceWMUEBIN) / (this.priceWMUEUSDT)).times(200).toFixed(2)
+            this.apy[2] = rewards.times(this.priceUSDTBIN).div(this.priceUSDTBIN.plus(1)).times(100).toFixed(2)
           } else if(cow.id == 3) {
-            this.apy[3] = rewards.times(this.priceBNBBIN * this.priceBNBUSDT).times(200).toFixed(2)
+            this.apy[3] = rewards.times(this.priceUSDTBIN).times(this.priceWMUEUSDT).div(this.priceWMUEUSDT.plus(1)).times(100).toFixed(2)
+          } else if(cow.id == 4) {
+            this.apy[4] = rewards.times(this.priceUSDTBIN).div(this.priceBNBUSDT.plus(1)).times(100).toFixed(2)
+          } else if(cow.id == 5) {
+            this.apy[5] = rewards.times(this.priceUSDTBIN).div(this.priceBTCBUSDT.plus(1)).times(100).toFixed(2)
+          } else if(cow.id == 6) {
+            this.apy[6] = rewards.times(this.priceUSDTBIN).times(this.priceETHUSDT).div(this.priceETHUSDT.plus(1)).times(100).toFixed(2)
           }
         }
         return cow

@@ -13,8 +13,8 @@
     },
     "home": {
         "note": "The Contract is not audited but open source, Please use at your own risk.",
-        "protocol-name": "0x1 Staking Pool",
-        "protocol-desc": "Stake 0x1 LP tokens to earn BIN tokens.",
+        "protocol-name": "0x1 Farming Pool",
+        "protocol-desc": "Stake 0x1 LP tokens to farm BIN tokens!",
         "coming-soon": "Coming soon",
         "select": "Select",
         "card-desc": "Stake {symbol}"

@@ -2,11 +2,11 @@
 export default {
   mode: 'spa',
   head: {
-    title: "0x1 Staking Pool",
+    title: "0x1 Farming Pool",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: "0x1 Staking Pool" },
+      { hid: 'description', name: 'description', content: "Stake 0x1 LP tokens to farm BIN tokens!" },
       { hid: 'keywords', name: 'keywords', content: 'Dapp, DeFi, Staking, Token, BIN, BNB, BSC' }
     ],
     link: [

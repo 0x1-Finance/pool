@@ -7,7 +7,7 @@
         <b-navbar variant="faded" type="light">
           <b-navbar-brand href="/">
             <img src="~/static/logo.png" class="d-inline-block align-top logo" alt="0x1 Staking Pool">
-            0x1 Staking Pool
+            0x1 Farming Pool
           </b-navbar-brand>
         </b-navbar>
 
@@ -16,8 +16,8 @@
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav class="ml-auto menu-link">
             <b-nav-item href="/">Home</b-nav-item>
-            <b-nav-item href="https://swap.0x1.finance" target="_blank">Trade</b-nav-item>
-            <b-nav-item href="https://swap.0x1.finance/#/pool" target="_blank">Liquidity Pool</b-nav-item>
+            <b-nav-item href="https://0x1.exchange" target="_blank">Trade</b-nav-item>
+            <b-nav-item href="https://0x1.exchange/#/pool" target="_blank">Liquidity Pool</b-nav-item>
 			<b-nav-item href="https://0x1.finance" target="_blank">About</b-nav-item>
 		  </b-navbar-nav>
 
