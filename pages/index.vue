@@ -96,17 +96,17 @@
           let rewards = rewardRate.times(365 * 24 * 60 * 60).div(balance)
 
           if(cow.id == 1) {
-            this.apy[1] = rewards.times(this.priceBNBBIN).div(this.priceBNBBIN.plus(1)).times(100).toFixed(2)
+            this.apy[1] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 3.13606317891).div(this.priceBNBUSDT).times(100).toFixed(2)
           } else if(cow.id == 2) {
-            this.apy[2] = rewards.times(this.priceUSDTBIN).div(this.priceUSDTBIN.plus(1)).times(100).toFixed(2)
+            this.apy[2] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.101677289248).div(this.priceUSDTBIN).times(100).toFixed(2)
           } else if(cow.id == 3) {
-            this.apy[3] = rewards.times(this.priceUSDTBIN).times(this.priceWMUEUSDT).div(this.priceWMUEUSDT.plus(1)).times(100).toFixed(2)
+            this.apy[3] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.01218813509).div(this.priceUSDTBIN).times(100).toFixed(2)
           } else if(cow.id == 4) {
-            this.apy[4] = rewards.times(this.priceUSDTBIN).div(this.priceBNBUSDT.plus(1)).times(100).toFixed(2)
+            this.apy[4] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.14616868513).div(this.priceBNBUSDT).times(100).toFixed(2)
           } else if(cow.id == 5) {
-            this.apy[5] = rewards.times(this.priceUSDTBIN).div(this.priceBTCBUSDT.plus(1)).times(100).toFixed(2)
+            this.apy[5] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.00879021139).div(this.priceBTCBUSDT).times(100).toFixed(2)
           } else if(cow.id == 6) {
-            this.apy[6] = rewards.times(this.priceUSDTBIN).times(this.priceETHUSDT).div(this.priceETHUSDT.plus(1)).times(100).toFixed(2)
+            this.apy[6] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.04563867651).times(this.priceETHUSDT).times(100).toFixed(2)
           }
         }
         return cow
