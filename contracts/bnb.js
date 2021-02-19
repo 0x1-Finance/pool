@@ -8,7 +8,7 @@ const ERC20_ABI = require('./abis/erc20.json');
 export class BNB {
 	constructor() {
 		this.web3 = new Web3(new Web3.providers.HttpProvider(config.web3Provider));
-		this.defaultGasPrice = 20000000000;
+		this.defaultGasPrice = 10000000000;
 		this.decimals = 18;
 		this.symbol = "BNB";
 	}
