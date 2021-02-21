@@ -26,11 +26,10 @@
       <div class="col-md-4 cow" v-for="(cow, i) in cows" :key="i">
         <div class="card mb-4 text-white bg-card cow">
           <div class="card-body">
-            <img :src="cow.image" class="tokenlogo">
-            <h8 class="card-title title">{{ cow.name }}</h8>
             <!-- <div class="desc">{{ cow.stakeToken.symbol }}</div> -->
-            <div class="desc"><b style="color: #b90505;">{{$t("home.card-desc", { symbol: cow.stakeToken.symbol })}}</b></div>
-            <p class="card-text apy" style="color: #23c153; font-weight: bold; padding-top: 5px;"> APY: {{apy[cow.id]}}% </p>
+            <div class="desc"><b style="color: #b90505;">{{cow.name2}}</b></div>
+			<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> Allocation: <font style="font-weight: normal; color: #b90505;">{{cow.allo}} BIN</font> </p>
+            <p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px;"> APY: <font style="font-weight: normal; color: #b90505;">{{apy[cow.id]}}%</font> </p>
             <a :href="'/pool/' + cow.id" v-if="cow.initialized" class="btn btn-block btn-x">
               {{$t("home.select")}}
             </a>

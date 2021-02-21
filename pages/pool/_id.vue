@@ -2,7 +2,8 @@
   <div>
     <div class="row" style="color: white;">
       <div class="col-12 text-center">
-        <div class="name">Stake {{cow.name}}</div><br>
+        <div class="name">{{cow.name2}}</div><br>
+		<div style="font-size: 20px;"><b>Total Allocation:</b> {{cow.allo}} BIN</div>
         <div class="desc">{{cow.desc}}</div>
         <br>
         <div style="font-size: 20px;">{{$t('cow.total')}} <b>{{ stakingTotal }}</b> {{ cow.stakeToken.symbol }} {{$t('cow.staking')}}</div>

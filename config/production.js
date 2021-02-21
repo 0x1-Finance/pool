@@ -5,7 +5,9 @@ module.exports = {
 		{
 			id: 1,
 			name: "BIN/BNB LP Token",
+			name2: "BIN/BNB Pool",
 			image: "https://0x1.finance/assets/images/logos/logo.png",
+			allo: "1000",
 			desc: "Reward Halving every 30 days, 0 fee on staked tokens for harvest & unstake",
 			initialized: true,
 			staking: true,
@@ -25,7 +27,9 @@ module.exports = {
 		{
 			id: 2,
 			name: "BIN/USDT LP Token",
+			name2: "BIN/USDT Pool",
 			image: "https://0x1.finance/assets/images/logos/logo.png",
+			allo: "750",
 			desc: "Reward Halving every 30 days, 0 fee on staked tokens for harvest & unstake",
 			initialized: true,
 			staking: true,
@@ -45,7 +49,9 @@ module.exports = {
 		{
 			id: 3,
 			name: "WMUE/BIN LP Token",
+			name2: "WMUE/BIN Pool",
 			image: "https://s2.coinmarketcap.com/static/img/coins/200x200/706.png",
+			allo: "100",
 			desc: "Reward Halving every 30 days, 0 fee on staked tokens for harvest & unstake",
 			initialized: true,
 			staking: true,
@@ -65,7 +71,9 @@ module.exports = {
 		{
 			id: 4,
 			name: "BNB/USDT LP Token",
+			name2: "BNB/USDT Pool",
 			image: "https://seeklogo.com/images/B/binance-coin-bnb-logo-97F9D55608-seeklogo.com.png",
+			allo: "250",
 			desc: "Reward Halving every 30 days, 0 fee on staked tokens for harvest & unstake",
 			initialized: true,
 			staking: true,
@@ -85,7 +93,9 @@ module.exports = {
 		{
 			id: 5,
 			name: "BTC/USDT LP Token",
+			name2: "BTC/USDT Pool",
 			image: "https://www.bobsguide.com/gallery/var/albums/Bitcoin_Logo_.png",
+			allo: "200",
 			desc: "Reward Halving every 30 days, 0 fee on staked tokens for harvest & unstake",
 			initialized: true,
 			staking: true,
@@ -105,7 +115,9 @@ module.exports = {
 		{
 			id: 6,
 			name: "ETH/USDT LP Token",
+			name2: "ETH/USDT Pool",
 			image: "https://cdn4.iconfinder.com/data/icons/cryptocoins/227/ETH-512.png",
+			allo: "200",
 			desc: "Reward Halving every 30 days, 0 fee on staked tokens for harvest & unstake",
 			initialized: true,
 			staking: true,
