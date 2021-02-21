@@ -18,7 +18,7 @@ export class Cow {
 
 		this.stakeToken = stakeToken;
 		this.yieldToken = yieldToken;
-		this.defaultGasPrice = 20000000000;
+		this.defaultGasPrice = 10000000000;
 		this.stakePrecision = BigNumber(10).pow(BigNumber(this.stakeToken.decimals))
 		this.yieldPrecision = BigNumber(10).pow(BigNumber(this.yieldToken.decimals))
 	}

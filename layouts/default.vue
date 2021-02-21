@@ -17,7 +17,8 @@
           <b-navbar-nav class="ml-auto menu-link">
             <b-nav-item href="/">Home</b-nav-item>
             <b-nav-item href="https://0x1.exchange" target="_blank">Trade</b-nav-item>
-            <b-nav-item href="https://0x1.exchange/#/pool" target="_blank">Liquidity Pool</b-nav-item>
+            <b-nav-item href="https://0x1.exchange/#/pool" target="_blank">LP Pool</b-nav-item>
+			<b-nav-item href="https://info.0x1.exchange" target="_blank">Charts</b-nav-item>
 			<b-nav-item href="https://0x1.finance" target="_blank">About</b-nav-item>
 		  </b-navbar-nav>
 
@@ -118,9 +119,9 @@
 <style>
 
   body {
-    background: url(https://0x1.finance/bg.jpg);
+    background: #23c153;
     background-size: cover;
-	font-family: "Lucida Console", "Courier New", monospace;
+	text-align: center;
   }
   .bg-dark {
     background-color: transparent !important;
@@ -146,6 +147,13 @@
   }
   .nav-item a {
     font-size: 1.1rem;
+    color: black !important;
+    padding: 5px 20px 5px 20px !important;
+    margin: 5px;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 10px;
+	border: 1px solid #23c153;
   }
   .nav-container{
     display: flex;
@@ -161,7 +169,7 @@
     height: 32px;
   }
   .addr{
-    color: #fff;
+    color: black;
     font-size: 1.1rem;
   }
   .main {

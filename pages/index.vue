@@ -3,10 +3,10 @@
     <div>
       <div class="intro">
         <h3>
-          {{$t("home.protocol-name")}}
+          <b style="color: #23c153;">{{$t("home.protocol-name")}}</b>
         </h3>
         <p>
-          Stake 0x1 LP tokens (generated from <a href="https://0x1.exchange" target="_blank">0x1.exchange</a>) and farm BIN tokens!
+          Stake 0x1 LP tokens (generated from <a href="https://0x1.exchange" target="_blank">0x1.exchange</a>) and earn BIN!
         </p>
       </div>
     </div>
@@ -29,8 +29,8 @@
             <img :src="cow.image" class="tokenlogo">
             <h8 class="card-title title">{{ cow.name }}</h8>
             <!-- <div class="desc">{{ cow.stakeToken.symbol }}</div> -->
-            <div class="desc">{{$t("home.card-desc", { symbol: cow.stakeToken.symbol })}}</div>
-            <p class="card-text apy"> APY: {{apy[cow.id]}}% </p>
+            <div class="desc"><b style="color: #b90505;">{{$t("home.card-desc", { symbol: cow.stakeToken.symbol })}}</b></div>
+            <p class="card-text apy" style="color: #23c153; font-weight: bold; padding-top: 5px;"> APY: {{apy[cow.id]}}% </p>
             <a :href="'/pool/' + cow.id" v-if="cow.initialized" class="btn btn-block btn-x">
               {{$t("home.select")}}
             </a>
@@ -125,11 +125,11 @@
   }
   .btn-x {
     color: white;
-    background-color: blue;
+    background-color: #23c153;
   }
   .btn-x:hover {
     color: black;
-    background-color: aqua;
+    background-color: #23c153b5;
   }
   .bg-card {
     background-color: white;

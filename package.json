@@ -1,8 +1,8 @@
 {
-  "name": "0x1Farm",
+  "name": "0x1-Farm",
   "version": "1.0.0",
-  "description": "Let's get milked",
-  "author": "BSCswap",
+  "description": "Stake 0x1 LP tokens (generated from 0x1.exchange) and earn BIN!",
+  "author": "0x1-Farm",
   "private": true,
   "scripts": {
     "dev": "nuxt",

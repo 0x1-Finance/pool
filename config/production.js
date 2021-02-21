@@ -142,5 +142,5 @@ module.exports = {
 	pair_WMUE_USDT: "0x912F7aDbA2A86982b9D0Fe3b560CeA17078820Da",
 	pair_BTCB_USDT: "0x3A9d07c6BC6D8c4b6B2a09E72653Ec7a7da4B49f",
 	pair_ETH_USDT: "0xcc177E281c908dC2FF456bFF81B8F48b360F5ADF",
-	web3Provider: "https://bsc-dataseed1.defibit.io"
+	web3Provider: "https://bsc-dataseed3.binance.org"
 }

@@ -13,7 +13,7 @@ export class Erc20 {
 		this.address = address;
 		this.contract = new this.web3.eth.Contract(ERC20_ABI, address)
 		this.contractReader = new this.web3Reader.eth.Contract(ERC20_ABI, address);
-		this.defaultGasPrice = 20000000000;
+		this.defaultGasPrice = 10000000000;
 		this.decimals = decimals;
 		this.symbol = symbol;
 	}

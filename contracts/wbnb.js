@@ -13,7 +13,7 @@ export class Wbnb {
 		this.contract = new this.web3.eth.Contract(WBNB_ABI, address)
 		this.decimals = decimals;
 		this.symbol = symbol;
-		this.defaultGasPrice = 20000000000;
+		this.defaultGasPrice = 10000000000;
 	}
 
 	async balanceOf(user) {

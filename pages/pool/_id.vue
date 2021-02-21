@@ -2,11 +2,10 @@
   <div>
     <div class="row" style="color: white;">
       <div class="col-12 text-center">
-        <img :src="cow.image" class="tokenlogo">
-        <div class="name">{{cow.name}}</div>
+        <div class="name">Stake {{cow.name}}</div><br>
         <div class="desc">{{cow.desc}}</div>
         <br>
-        <div>{{$t('cow.total')}} <b>{{ stakingTotal }}</b> {{ cow.stakeToken.symbol }} {{$t('cow.staking')}}</div>
+        <div style="font-size: 20px;">{{$t('cow.total')}} <b>{{ stakingTotal }}</b> {{ cow.stakeToken.symbol }} {{$t('cow.staking')}}</div>
       </div>
     </div>
     <br>
@@ -325,10 +324,11 @@
     font-size: 5rem;
   }
   .name {
-    font-size: 1.2rem;
+    font-size: 22px;
+	font-weight: bold;
   }
   .desc {
-    color: #666;
+    font-size: 20px;
   }
   .info {
     background-color: #eee;
