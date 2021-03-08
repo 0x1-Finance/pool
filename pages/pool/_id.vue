@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="row" style="color: white;">
+    <div class="row">
       <div class="col-12 text-center">
         <div class="name">{{cow.name2}}</div><br>
 		<div style="font-size: 20px;"><b>Total Allocation:</b> {{cow.allo}} BIN</div>

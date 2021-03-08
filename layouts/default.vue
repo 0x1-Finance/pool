@@ -7,7 +7,7 @@
         <b-navbar variant="faded" type="light">
           <b-navbar-brand href="/">
             <img src="~/static/logo.png" class="d-inline-block align-top logo" alt="0x1 Staking Pool">
-            0x1 Farming Pool
+            <font style="color: #000;">0x1 Farming Pool</font>
           </b-navbar-brand>
         </b-navbar>
 
@@ -119,7 +119,8 @@
 <style>
 
   body {
-    background: #23c153;
+    background-repeat: no-repeat;
+    background-image: radial-gradient(100% 100%,rgba(2, 255, 53, 0.25) 0,hsla(0,0%,100%,0) 100%);
     background-size: cover;
 	text-align: center;
   }
@@ -148,11 +149,11 @@
   .nav-item a {
     font-size: 1.1rem;
     color: black !important;
-    padding: 5px 20px 5px 20px !important;
+    padding: 5px 30px 5px 30px !important;
     margin: 5px;
     text-decoration: none;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 3px;
 	border: 1px solid #23c153;
   }
   .nav-container{

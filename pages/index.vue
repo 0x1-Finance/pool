@@ -12,12 +12,9 @@
     </div>
     <br>
 	
-	<div class="price alert alert-success">
-      <marquee>1 BIN = {{ priceBNBBIN ? (priceBNBBIN).toFixed(4) : '--' }} BNB ~ {{ priceUSDTBIN ? (priceUSDTBIN).toFixed(2) : '--' }} USDT |
-      1 BNB = {{ priceBNBUSDT ? priceBNBUSDT.toFixed(2) : '--' }} USDT |
-	  1 BTC = {{ priceBTCBUSDT ? priceBTCBUSDT.toFixed(2) : '--' }} USDT |
-	  1 ETH = {{ priceETHUSDT ? (1/priceETHUSDT).toFixed(2) : '--' }} USDT |
-	  1 WMUE = {{ priceWMUEUSDT ? (1/priceWMUEUSDT).toFixed(4) : '--' }} USDT</marquee>
+	<div class="price alert top">
+      1 BIN = {{ priceBNBBIN ? (priceBNBBIN).toFixed(4) : '--' }} BNB ~ {{ priceUSDTBIN ? (priceUSDTBIN).toFixed(2) : '--' }} USDT |
+      1 BNB = {{ priceBNBUSDT ? priceBNBUSDT.toFixed(2) : '--' }} USDT<br>
 	  <small><b>NOTE:</b> PRICE FEED IS IMPORTED FROM 0x1 EXCHANGE</small>
     </div>
 	<br>
@@ -28,9 +25,29 @@
           <div class="card-body">
             <!-- <div class="desc">{{ cow.stakeToken.symbol }}</div> -->
             <div class="desc"><b style="color: #b90505;">{{cow.name2}}</b></div>
-			<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> Allocation: <font style="font-weight: normal; color: #b90505;">{{cow.allo}} BIN</font> </p>
-            <p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px;"> APY: <font style="font-weight: normal; color: #b90505;">{{apy[cow.id]}}%</font> </p>
-            <a :href="'/pool/' + cow.id" v-if="cow.initialized" class="btn btn-block btn-x">
+			<table style="margin: 15px 0px 20px 0px;">
+				<tr>
+					<td style="width: 50%; text-align: left;">
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> Allocation: </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> Reward Rate: </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> Current APY: </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> Pool Fee: </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> Start Date: </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> Pool Duration: </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px;"> Reward Halving: </p>
+					</td>
+					<td style="width: 50%; text-align: right;">
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> <font style="font-weight: normal; color: #b90505;">{{cow.allo}} BIN</font> </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> <font style="font-weight: normal; color: #b90505;">{{rate[cow.id]}} BIN/sec</font> </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> <font style="color: #b90505;">{{apy[cow.id]}}%</font> </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> <font style="font-weight: normal; color: #b90505;">{{cow.fee}}</font> </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> <font style="font-weight: normal; color: #b90505;">{{cow.start}}</font> </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px; margin-bottom: 0;"> <font style="font-weight: normal; color: #b90505;">{{cow.duration}}</font> </p>
+						<p class="card-text apy" style="color: #118735; font-weight: bold; padding-top: 5px;"> <font style="font-weight: normal; color: #b90505;">{{cow.halving}}</font> </p>
+					<td>
+				</tr>
+			</table>
+			<a :href="'/pool/' + cow.id" v-if="cow.initialized" class="btn btn-block btn-x">
               {{$t("home.select")}}
             </a>
             <a href="#" v-else class="btn btn-secondary btn-block">{{$t("home.coming-soon")}}</a>
@@ -65,7 +82,15 @@
 		  4: '--',
 		  5: '--',
 		  6: '--'
-        }
+        },
+		rate: {
+          1: '--',
+		  2: '--',
+		  3: '--',
+		  4: '--',
+		  5: '--',
+		  6: '--'
+		}
       }
     },
     methods: {
@@ -96,16 +121,22 @@
 
           if(cow.id == 1) {
             this.apy[1] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 3.13606317891).div(this.priceBNBUSDT).times(100).toFixed(2)
+			this.rate[1] = rewardRate.toFixed(6)
           } else if(cow.id == 2) {
             this.apy[2] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.101677289248).div(this.priceUSDTBIN).times(100).toFixed(2)
+			this.rate[2] = rewardRate.toFixed(6)
           } else if(cow.id == 3) {
             this.apy[3] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.01218813509).div(this.priceUSDTBIN).times(100).toFixed(2)
+			this.rate[3] = rewardRate.toFixed(6)
           } else if(cow.id == 4) {
             this.apy[4] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.14616868513).div(this.priceBNBUSDT).times(100).toFixed(2)
+			this.rate[4] = rewardRate.toFixed(6)
           } else if(cow.id == 5) {
             this.apy[5] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.00879021139).div(this.priceBTCBUSDT).times(100).toFixed(2)
+			this.rate[5] = rewardRate.toFixed(6)
           } else if(cow.id == 6) {
-            this.apy[6] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.04563867651).times(this.priceETHUSDT).times(100).toFixed(2)
+            this.apy[6] = rewardRate.times(60 * 60 * 24 * 365).times(this.priceUSDTBIN).div(balance * 0.04563867651).div(this.priceETHUSDT).times(100).toFixed(2)
+			this.rate[6] = rewardRate.toFixed(6)
           }
         }
         return cow
@@ -183,6 +214,11 @@
   .apy {
     font-size: 0.9rem;
     color: #007bff;
+  }
+  .top {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
   }
 
 </style>
